@@ -140,3 +140,104 @@ def login_view(request):
 def logout_view(request):
 	logout(request)
 	return redirect("home")
+
+
+# from django.http import HttpResponse
+# from django.shortcuts import render, redirect
+# from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+# from django.contrib.auth import login, logout
+# from nltk.tokenize import word_tokenize
+# from nltk.corpus import stopwords
+# from nltk.stem import WordNetLemmatizer
+# import nltk
+# from django.contrib.staticfiles import finders
+# from django.contrib.auth.decorators import login_required
+
+# def analyze_text(text):
+#     text = text.lower()
+#     words = word_tokenize(text)
+#     tagged = nltk.pos_tag(words)
+    
+#     tense = {
+#         "future": len([word for word in tagged if word[1] == "MD"]),
+#         "present": len([word for word in tagged if word[1] in ["VBP", "VBZ", "VBG"]]),
+#         "past": len([word for word in tagged if word[1] in ["VBD", "VBN"]]),
+#         "present_continuous": len([word for word in tagged if word[1] in ["VBG"]])
+#     }
+    
+#     stop_words = set(stopwords.words('english'))
+#     lr = WordNetLemmatizer()
+    
+#     filtered_text = [lr.lemmatize(w, pos='v') if w not in stop_words and p[1] in ["VBG", "VBD", "VBZ", "VBN", "NN"]
+#                     else lr.lemmatize(w, pos='a') if p[1] in ["JJ", "JJR", "JJS", "RBR", "RBS"]
+#                     else lr.lemmatize(w)
+#                     for w, p in zip(words, tagged)]
+    
+#     words = ["Me" if w == 'I' else w for w in filtered_text]
+#     probable_tense = max(tense, key=tense.get)
+    
+#     if probable_tense == "past" and tense["past"] >= 1:
+#         words.insert(0, "Before")
+#     elif probable_tense == "future" and tense["future"] >= 1:
+#         if "Will" not in words:
+#             words.insert(0, "Will")
+#     elif probable_tense == "present" and tense["present_continuous"] >= 1:
+#         words.insert(0, "Now")
+    
+#     return words
+
+# @login_required(login_url="login")
+# def animation_view(request):
+#     if request.method == 'POST':
+#         text = request.POST.get('sen')
+#         words = analyze_text(text)
+        
+#         filtered_text = []
+#         for w in words:
+#             path = w + ".mp4"
+#             f = finders.find(path)
+#             filtered_text.extend(w if f else list(w))
+        
+#         return render(request, 'animation.html', {'words': filtered_text, 'text': text})
+    
+#     return render(request, 'animation.html')
+
+# def signup_view(request):
+#     if request.method == 'POST':
+#         form = UserCreationForm(request.POST)
+#         if form.is_valid():
+#             user = form.save()
+#             login(request, user)
+#             return redirect('animation')
+#     else:
+#         form = UserCreationForm()
+#     return render(request, 'signup.html', {'form': form})
+
+# def login_view(request):
+#     if request.method == 'POST':
+#         form = AuthenticationForm(data=request.POST)
+#         if form.is_valid():
+#             user = form.get_user()
+#             login(request, user)
+#             next_url = request.POST.get('next')
+#             return redirect(next_url) if next_url else redirect('animation')
+#     else:
+#         form = AuthenticationForm()
+#     return render(request, 'login.html', {'form': form})
+
+# from django.shortcuts import render
+
+# def about_view(request):
+#     return render(request, 'about.html')
+# from django.shortcuts import render
+
+# def contact_view(request):
+#     return render(request, 'contact.html')
+# from django.shortcuts import render
+
+# def home_view(request):
+#     return render(request, 'home.html')
+
+# def logout_view(request):
+#     logout(request)
+#     return redirect("home")
