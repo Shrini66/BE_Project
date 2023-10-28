@@ -1,14 +1,89 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	
-	<h2>VERSION 1.0.0</h2>
- 	<hr>
- 	<h2>CONTACT US</h2>
-	<p class="td">For any queries regarding this website contact us on following:</p>
-	<p class="td">Kulkarnishrinivas66@gmail.com</p>
-	<p class="td">Contact number:7218442511</p>
- 	<hr>
-	<p class="td">Thank you, For visiting our website</p>
+  <style>
+    /* CSS Styles for the content in this block */
+    h2 {
+      color: #333;
+      font-size: 24px;
+    }
 
+    hr {
+      border: 1px solid #ccc;
+      margin: 20px 0;
+    }
+
+    .td {
+      color: #666;
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    .version-button {
+      background-color: #393f4d;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .version-container {
+      display: none;
+    }
+
+    table {
+      margin: 0 auto;
+      border-collapse: collapse; /* Add this to collapse table borders */
+    }
+
+    th, td {
+      border: 1px solid #ccc; /* Add borders to table cells */
+      padding: 5px;
+    }
+
+    th {
+      text-align: left;
+      font-weight: bold;
+    }
+
+    /* Position the version at the bottom right */
+    .version-footer {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-size: 14px;
+    }
+  </style>
+
+  <h2>CONTACT US</h2>
+  <table>
+    <tr>
+      <th>Contact Method</th>
+      <th>Contact Information</th>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>Kulkarnishrinivas66@gmail.com</td>
+    </tr>
+    <tr>
+      <td>Contact number</td>
+      <td>7218442511</td>
+    </tr>
+  </table>
+  <hr>
+
+  <button class="version-button" onclick="showVersion()">Show Version</button>
+  <div class="version-container" id="version">
+    <h3>VERSION 1.0.0</h3>
+  </div>
+
+  <div class="version-footer"><h4>Thank you for visiting our website</h4></div>
+
+  <script>
+    function showVersion() {
+      var versionContainer = document.getElementById("version");
+      versionContainer.style.display = "block";
+    }
+  </script>
 {% endblock %}

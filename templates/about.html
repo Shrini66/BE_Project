@@ -1,19 +1,76 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+	/* CSS Styles for the content in this block */
+	h2 {
+		color: #333;
+		font-size: 24px;
+	}
+
+	hr {
+		border: 1px solid #ccc;
+		margin: 20px 0;
+	}
+
+	.td {
+		color: #666;
+		font-size: 16px;
+		margin: 10px 0;
+	}
+
+	/* Center the content */
+	center {
+		text-align: center;
+	}
+
+	/* Table Styles */
+	table {
+		border-collapse: collapse;
+		margin: 0 auto;
+	}
+
+	th,
+	td {
+		border: 1px solid #ccc;
+		padding: 8px 15px;
+		text-align: left;
+	}
+
+	th {
+		font-weight: bold;
+		background-color: #f2f2f2;
+	}
+</style>
 
 <center>
 	<h2>Our Creator Team:</h2>
 	<hr>
-	<ul class="td" style="list-style: none;">
-		<li> 1. Shrinivas S. Kulkarni</li>
-		<li> 2. Krishna N. Dubile</li>
-		<li> 3. Pankaj R. Waykar</li>
-		<li> 4. Tejas V. Mishra</li>
-	</ul>
+	<table>
+		<tr>
+			<th>Sr No.</th>
+			<th>Team Member</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>Shrinivas S. Kulkarni</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>Krishna N. Dubile</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>Pankaj R. Waykar</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>Tejas V. Mishra</td>
+		</tr>
+	</table>
 	<hr>
 </center>
 <center>
-	<p class="td">Thank you, For visiting our website</p>
+	<p class="td">Thank you for visiting our website</p>
 </center>
 {% endblock %}

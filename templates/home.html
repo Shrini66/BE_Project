@@ -1,13 +1,112 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block content %}
-<video width="500" height="380" class="center" autoplay loop>
-  <source src= "{% static 'Hello.mp4' %}" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-	<div class="form-style" align="middle" >
-	<a href="{% url 'animation' %}"><button class="button">Click to Start</button></a>
-	</div>
+  <style>
+    /* Add this CSS directly in your HTML file within a <style> tag */
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0; /* Change this to your desired background color */
+    }
+
+    .video-container {
+      margin-right: 20px;
+      border: 2px solid #333; /* Add a border to the video container */
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .form-container {
+      background-color: #fff; /* Change this to your desired background color */
+      border: 2px solid #333; /* Add a border to the form container */
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .button {
+      background-color: #f7fbff; /* Change this to your desired button color */
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #0056b3; /* Change this to the hover color */
+    }
+
+    .project-description h2 {
+      margin-top: 20px;
+	  color: black;
+    }
+
+    /* Add more CSS to style the project description text as needed */
+  </style>
+
+  <div class="container">
+    <div class="video-container">
+      <!-- <video width="500" height="380" autoplay loop>
+        <source src="{% static 'Hello.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video> -->
+    </div>
+
+    <div class="form-container">
+      <div class="form-style">
+        <a href="{% url 'animation' %}">
+          <button class="button">Click to Start</button>
+        </a>
+      </div>
+
+      <div class="project-description">
+        <center><h2>Welcome to our Speech to Sign Language Converter Project</h2></center>
+		<script>
+			const textLines = [
+				"Welcome","to","Our","Speech","To","Sign","Language","Converter","Project"
+			];
+	
+			const typingDelay = 50; // Adjust this value to control typing speed
+			const lineDelay = 2000; // Adjust this value to control delay between lines
+	
+	
+			function typeText(line, text, index) {
+				if (index < text.length) {
+					document.getElementById(line).innerHTML = text.substring(0, index + 1);
+					setTimeout(() => typeText(line, text, index + 1), typingDelay);
+				}
+			}
+	
+			function startTyping() {
+				for (let i = 0; i < textLines.length; i++) {
+					setTimeout(() => {
+						typeText("line" + (i + 1), textLines[i], 0);
+					}, i * lineDelay);
+				}
+			}
+	
+			startTyping();
+		</script>
+        <p>
+          Our mission is to make communication inclusive and accessible to everyone. With our innovative technology, we convert spoken language into sign language, empowering the Deaf and Hard of Hearing community to interact seamlessly with the hearing world.
+        </p>
+        <p>
+          "Communication is not just about words; it's about understanding and connecting with each other."
+        </p>
+      </div>
+    </div>
+  </div>
 {% endblock %}

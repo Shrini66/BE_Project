@@ -36,11 +36,10 @@
 
 	<div style="text-align:center">	&nbsp&nbsp
   	<button class="submit" onclick="playPause()">Play/Pause</button>
-  	<!--  LETS USE ONLY PLAY PAUSE BUTTON WITH 720 *420 ,IT FITS THE SCREEN ASHISH
 
-  	<button onclick="makeBig()">Big</button>
+  	<!-- <button onclick="makeBig()">Big</button>
   	<button onclick="makeSmall()">Small</button>
-  	<button onclick="makeNormal()">Normal</button>-->
+  	<button onclick="makeNormal()">Normal</button> -->
 
 
   	<video id="videoPlayer" width="600" height="350"  preload="auto" autoplay>
@@ -105,7 +104,7 @@
 	    	}
 		}
 	}
-	/* LETS USE ONLY PLAY PAUSE BUTTON WITH 720 *420 ,IT FITS THE SCREEN
+	/*
 	function makeBig() {
 	    document.getElementById("videoPlayer").width = 560;
 		document.getElementById("videoPlayer").height = 360;
@@ -119,7 +118,7 @@
 	function makeNormal() {
 	    document.getElementById("videoPlayer").width = 420;
 		document.getElementById("videoPlayer").height =280;
-	}*/
+	} */
 	function playPause(){
   		if (document.getElementById("videoPlayer").paused){
     		play();}
