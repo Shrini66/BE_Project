@@ -1,7 +1,7 @@
 import setuptools
 
 setuptools.setup(
-    name='audio-speech-to-sign-language-converter',
+    name='Speech-speech-to-sign-language-converter',
     version='0.1.0',
     description='Python project',
     author='Shrinivas Kulkarni',

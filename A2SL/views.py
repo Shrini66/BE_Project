@@ -19,6 +19,7 @@ def about_view(request):
 
 def contact_view(request):
 	return render(request,'contact.html')
+	
 
 @login_required(login_url="login")
 def animation_view(request):
